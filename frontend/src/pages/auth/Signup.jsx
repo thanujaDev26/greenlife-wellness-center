@@ -7,6 +7,7 @@ import Card from '../../components/ui/Card.jsx';
 import Button from '../../components/ui/Button.jsx';
 import Input from '../../components/ui/Input.jsx';
 import { useFormState } from '../../hooks/useLocalState.jsx';
+import { ArrowLeft } from 'lucide-react';
 
 const Signup = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -123,6 +124,15 @@ const Signup = () => {
         </div>
 
         <Card>
+        <div className="mb-4">
+  <button
+    onClick={() => navigate('/')}
+    className="flex items-center text-brand-600 hover:text-brand-700 font-medium"
+  >
+    <ArrowLeft className="w-5 h-5 mr-2" />
+    Back to Home
+  </button>
+</div>
           <div className="text-center mb-6">
             <h2 className="text-2xl font-bold text-brand-800 mb-2">
               Join GreenLife

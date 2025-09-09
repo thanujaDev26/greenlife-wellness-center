@@ -8,6 +8,7 @@ import Button from '../../components/ui/Button.jsx';
 import Input from '../../components/ui/Input.jsx';
 import Select from '../../components/ui/Select.jsx';
 import { useFormState } from '../../hooks/useLocalState.jsx';
+import { ArrowLeft } from 'lucide-react';
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -73,6 +74,7 @@ const Login = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-brand-50 to-accent-50 flex items-center justify-center p-4">
       <div className="w-full max-w-md">
+      
         {/* Logo */}
         <div className="text-center mb-8">
           <Link to="/" className="inline-flex items-center space-x-2">
@@ -92,6 +94,15 @@ const Login = () => {
 
         <Card>
           <div className="text-center mb-6">
+          <div className="mb-4">
+  <button
+    onClick={() => navigate('/')}
+    className="flex items-center text-brand-600 hover:text-brand-700 font-medium"
+  >
+    <ArrowLeft className="w-5 h-5 mr-2" />
+    Back to Home
+  </button>
+</div>
             <h2 className="text-2xl font-bold text-brand-800 mb-2">
               Welcome Back
             </h2>
