@@ -1,0 +1,90 @@
+export const appointments = [
+  {
+    id: 1,
+    patientId: 1,
+    patientName: "Sarah Johnson",
+    therapistId: 11,
+    therapistName: "Dr. Priya Sharma",
+    serviceId: 1,
+    serviceName: "Ayurvedic Therapy",
+    date: "2024-01-25",
+    time: "10:00 AM",
+    duration: "90 minutes",
+    status: "confirmed",
+    price: "LKR 8,500",
+    notes: "First consultation - focus on stress management and digestive issues",
+    createdAt: "2024-01-20T14:30:00Z"
+  },
+  {
+    id: 2,
+    patientId: 2,
+    patientName: "David Chen",
+    therapistId: 13,
+    therapistName: "Master Chen Wei",
+    serviceId: 3,
+    serviceName: "Deep Tissue Massage",
+    date: "2024-01-25",
+    time: "2:00 PM",
+    duration: "75 minutes",
+    status: "confirmed",
+    price: "LKR 6,500",
+    notes: "Chronic shoulder tension from office work",
+    createdAt: "2024-01-22T09:15:00Z"
+  },
+  {
+    id: 3,
+    patientId: 3,
+    patientName: "Emma Wilson",
+    therapistId: 12,
+    therapistName: "Meditation Master Sita",
+    serviceId: 4,
+    serviceName: "Mindfulness Meditation",
+    date: "2024-01-26",
+    time: "8:00 AM",
+    duration: "45 minutes",
+    status: "confirmed",
+    price: "LKR 3,500",
+    notes: "Anxiety management - beginner session",
+    createdAt: "2024-01-21T16:45:00Z"
+  },
+  {
+    id: 4,
+    patientId: 1,
+    patientName: "Sarah Johnson",
+    therapistId: 12,
+    therapistName: "Meditation Master Sita",
+    serviceId: 2,
+    serviceName: "Therapeutic Yoga",
+    date: "2024-01-27",
+    time: "6:30 PM",
+    duration: "60 minutes",
+    status: "pending",
+    price: "LKR 4,500",
+    notes: "Follow-up session focusing on stress relief poses",
+    createdAt: "2024-01-23T11:20:00Z"
+  },
+  {
+    id: 5,
+    patientId: 2,
+    patientName: "David Chen",
+    therapistId: 11,
+    therapistName: "Dr. Priya Sharma",
+    serviceId: 5,
+    serviceName: "Nutritional Counseling",
+    date: "2024-01-28",
+    time: "11:00 AM",
+    duration: "60 minutes",
+    status: "confirmed",
+    price: "LKR 5,500",
+    notes: "Weight management and energy optimization consultation",
+    createdAt: "2024-01-24T13:10:00Z"
+  }
+];
+
+export const appointmentStatuses = [
+  { value: "pending", label: "Pending", color: "bg-yellow-100 text-yellow-800" },
+  { value: "confirmed", label: "Confirmed", color: "bg-green-100 text-green-800" },
+  { value: "completed", label: "Completed", color: "bg-blue-100 text-blue-800" },
+  { value: "cancelled", label: "Cancelled", color: "bg-red-100 text-red-800" },
+  { value: "rescheduled", label: "Rescheduled", color: "bg-orange-100 text-orange-800" }
+];
