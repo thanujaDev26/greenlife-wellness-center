@@ -17,7 +17,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 
 app.use('/api/auth', authRoutes);
-
+app.use('/api/appointments', require('./routes/appointmentRoutes'))
 
 app.get('/health', (req, res) => res.json({ status: 'ok', timestamp: new Date() }));
 
