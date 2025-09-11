@@ -37,8 +37,7 @@ const Signup = () => {
     },
     phone: {
       required: true,
-      pattern: /^\+94\s\d{2}\s\d{3}\s\d{4}$/,
-      message: 'Please enter phone number in format: +94 77 123 4567'
+      message: 'Please enter phone number in format: 0771234567'
     },
     password: {
       required: true,
@@ -68,7 +67,7 @@ const Signup = () => {
     
     if (!validate()) return;
 
-    // Check password match
+    
     if (formData.password !== formData.confirmPassword) {
       error('Passwords do not match');
       return;
@@ -77,15 +76,13 @@ const Signup = () => {
     setIsSubmitting(true);
     try {
       const userData = {
-        name: formData.name,
+        fullName: formData.name,   
         email: formData.email,
         phone: formData.phone,
-        emergencyContact: {
-          name: formData.emergencyContactName,
-          phone: formData.emergencyContactPhone,
-          relationship: formData.emergencyContactRelationship
-        },
-        preferences: []
+        password: formData.password,   
+        emergencyContactName: formData.emergencyContactName,
+        emergencyContactNumber: formData.emergencyContactPhone,
+        relationshipToPatient: formData.emergencyContactRelationship
       };
 
       const result = await signup(userData);
@@ -164,7 +161,7 @@ const Signup = () => {
                   type="tel"
                   value={formData.phone}
                   onChange={(e) => updateField('phone', e.target.value)}
-                  placeholder="+94 77 123 4567"
+                  placeholder="0771234567"
                   error={errors.phone}
                   required
                 />
@@ -248,7 +245,7 @@ const Signup = () => {
                   type="tel"
                   value={formData.emergencyContactPhone}
                   onChange={(e) => updateField('emergencyContactPhone', e.target.value)}
-                  placeholder="+94 77 123 4567"
+                  placeholder="0771234567"
                   error={errors.emergencyContactPhone}
                   required
                 />

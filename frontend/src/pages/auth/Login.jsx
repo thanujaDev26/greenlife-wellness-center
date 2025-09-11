@@ -33,37 +33,38 @@ const Login = () => {
       required: true,
       minLength: 6,
       message: 'Password must be at least 6 characters'
-    },
-    role: {
-      required: true,
-      message: 'Please select a role'
     }
   });
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    
-    if (!validate()) return;
+  e.preventDefault();
 
-    setIsSubmitting(true);
-    try {
-      const result = await login(formData.email, formData.password, formData.role);
-      
-      if (result.success) {
-        success('Welcome back!');
-        const redirectPath = formData.role === 'patient' ? '/patient' :
-                           formData.role === 'therapist' ? '/therapist' :
-                           formData.role === 'admin' ? '/admin' : from;
-        navigate(redirectPath, { replace: true });
-      } else {
-        error(result.error || 'Login failed');
-      }
-    } catch (err) {
-      error('Something went wrong. Please try again.');
-    } finally {
-      setIsSubmitting(false);
+  if (!validate()) return;
+
+  setIsSubmitting(true);
+  try {
+    const result = await login(formData.email, formData.password);
+
+    if (result.success) {
+      success('Welcome back!');
+      const { role } = result.user;
+
+      const redirectPath =
+        role === 'patient' ? '/patient' :
+        role === 'therapist' ? '/therapist' :
+        role === 'admin' ? '/admin' : '/';
+
+      navigate(redirectPath, { replace: true });
+    } else {
+      error(result.error || 'Login failed');
     }
-  };
+  } catch (err) {
+    error('Something went wrong. Please try again.');
+  } finally {
+    setIsSubmitting(false);
+  }
+};
+
 
   const roleOptions = [
     { value: 'patient', label: 'Patient' },
@@ -112,15 +113,7 @@ const Login = () => {
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-6">
-            <Select
-              label="I am a..."
-              value={formData.role}
-              onChange={(e) => updateField('role', e.target.value)}
-              options={roleOptions}
-              placeholder="Select your role"
-              error={errors.role}
-              required
-            />
+            
 
             <Input
               label="Email Address"
