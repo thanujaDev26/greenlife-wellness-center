@@ -174,17 +174,6 @@ const Login = () => {
               </Link>
             </p>
           </div>
-
-          {/* Demo Credentials */}
-          <div className="mt-8 p-4 bg-neutral-50 rounded-xl">
-            <p className="text-xs text-neutral-600 font-medium mb-2">Demo Credentials:</p>
-            <div className="space-y-1 text-xs text-neutral-600">
-              <p><strong>Patient:</strong> sarah.johnson@email.com</p>
-              <p><strong>Therapist:</strong> priya.sharma@greenlife.lk</p>
-              <p><strong>Admin:</strong> admin@greenlife.lk</p>
-              <p className="mt-1 italic">Password: any text (demo mode)</p>
-            </div>
-          </div>
         </Card>
       </div>
     </div>
