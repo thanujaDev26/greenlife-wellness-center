@@ -1,11 +1,16 @@
 require('dotenv').config();
 const express = require('express');
 const bodyParser = require('body-parser');
+const cors = require("cors");
 const { sequelize } = require('./models');
 const authRoutes = require('./routes/authRoutes');
 
 const app = express();
-
+app.use(cors({
+  origin: "http://localhost:5173",  
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  credentials: true
+}));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
